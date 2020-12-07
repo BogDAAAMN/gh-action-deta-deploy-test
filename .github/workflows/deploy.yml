@@ -27,5 +27,6 @@ jobs:
       
       - uses: BogDAAAMN/deta-deploy-action@main
         with:
-          deta-access-token: 'Mona the Octocat'
-          deta-name: 'heyyyy'
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: 'gh-action-deta-deploy-test'
+          deta-project: 'actions-test'
