@@ -1,32 +1,13 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Deploy to Deta
+on: push
 
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  deploy-deta:
-    # The type of runner that the job will run on
+  deploy:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      
-      - uses: BogDAAAMN/deta-deploy-action@main
+      - uses: actions/checkout@v2 #Be sure you check-out the repo first. Deta CLI needs access to the files
+      - uses: BogDAAAMN/deta-deploy-action@v1.0.0
         with:
-          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'gh-action-deta-deploy-test'
           deta-project: 'actions-test'
