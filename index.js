@@ -3,7 +3,7 @@ const express = require('express');
 const app = express(); // instantiate express
 
 app.get('/hey', async (req, res) => {
-   res.send('hey gh again!!! from actions this time <3 once again from actions!')
+   res.send('hey gh again!!! Deta test yay!')
 });
 
 module.exports = app;
